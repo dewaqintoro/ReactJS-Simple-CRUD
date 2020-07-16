@@ -3,6 +3,7 @@ import { BackComp } from '../components/BackComp'
 
 export default class DetailUserCont extends Component {
   render() {
+    console.log(this.props)
     return (
       <div>
         <h1>Detail</h1>

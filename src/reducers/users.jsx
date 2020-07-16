@@ -1,9 +1,11 @@
-import { GET_USERS_LIST } from "../actions/userAction"
+import { GET_USERS_LIST, GET_USERS_DETAIL } from "../actions/userAction"
 
 
 let initialState = {
   getUsersList:false,
   errorUsersList: false,
+  getUsersDetail:false,
+  errorUsersDetail: false,
   title:"wadudu"
 }
  
@@ -15,7 +17,15 @@ const users = (state = initialState, action)=>{
         getUsersList: action.payload.data,
         errorUsersList: action.payload.errorMessage
       }
-      default:
+
+      case GET_USERS_DETAIL:
+        return{
+          ...state,
+          getUsersDetail: action.payload.data,
+          errorUsersDetail: action.payload.errorMessage
+        }
+    
+    default:
         return state;
   }
 }
