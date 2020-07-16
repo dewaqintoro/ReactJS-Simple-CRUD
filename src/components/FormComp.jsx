@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from "react-redux";
 import { Component } from 'react';
 import { Row, Col, Label, Input, FormGroup, Button } from 'reactstrap';
+import UserValidation from '../validations/UserValidation';
 
 const renderField = ({
   input,
@@ -27,7 +28,7 @@ const renderField = ({
         disabled={disabled}
         readOnly={readOnly}
       ></Input>
-      
+       
       {/* form validasi */}
       {touched &&
         ((error && <p style={{ color: "red" }}>{error}</p>) ||
@@ -39,7 +40,7 @@ const renderField = ({
 class FormComp extends Component{
   render(){
     return(
-      <form>
+      <form onSubmit={this.props.handleSubmit}>
         <FormGroup row>
           <Col md={6}>
             <FormGroup>
@@ -106,6 +107,7 @@ class FormComp extends Component{
 
 FormComp = reduxForm({
   form: "formAddUser",
+  validate: UserValidation,
   enableReinitialize:true,
 })(FormComp);
 

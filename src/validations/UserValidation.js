@@ -13,8 +13,8 @@ const UserValidation = (values) => {
     errors.alamat = "Alamat harus diisi";
   }
 
-  if (!values.nohp || values.nohp === "") {
-    errors.nohp = "No HP harus diisi";
+  if (!values.Hp || values.Hp === "") {
+    errors.Hp = "No HP harus diisi";
   }
 
   return errors
