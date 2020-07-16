@@ -60,3 +60,15 @@ export const getUsersDetail= (id) => {
       })
   }
 }
+
+export const deleteUserDetail = () => {
+  return(dispatch) => {
+    dispatch({
+      type: GET_USERS_DETAIL,
+      payload:{
+        data:false,
+        errorMessage: false
+      }
+    })
+  }
+}

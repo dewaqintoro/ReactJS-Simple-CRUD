@@ -19,7 +19,7 @@ export default class App extends Component{
       <div>
         <Container>
           <NavbarComp/>
-          <JumboComp/>
+          {/* <JumboComp/> */}
           {/* <TableComp users={this.state.users} /> */}
 
           <BrowserRouter>

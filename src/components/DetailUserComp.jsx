@@ -14,8 +14,8 @@ const mapStateToProps = (state) => {
 const DetailUserComp = (props) => {
   // console.log(props.getUsersDetail)
   return (
-    <Table>
-      <thead>
+    <Table striped>
+      {/* <thead>
         <tr>
           <th>Nama</th>
           <th>Alamat</th>
@@ -29,6 +29,28 @@ const DetailUserComp = (props) => {
           <td>{props.getUsersDetail.umur}</td>
         </tr>
         
+      </tbody> */}
+      <tbody>
+        <tr>
+          <td width="200">Nama</td>
+          <td width="10">:</td>
+          <td>{props.getUsersDetail.nama}</td>
+        </tr>
+        <tr>
+          <td width="200">Alamat</td>
+          <td width="10">:</td>
+          <td>{props.getUsersDetail.alamat}</td>
+        </tr>
+        <tr>
+          <td width="200">Umur</td>
+          <td width="10">:</td>
+          <td>{props.getUsersDetail.umur}</td>
+        </tr>
+        <tr>
+          <td width="200">No Hp</td>
+          <td width="10">:</td>
+          <td>{props.getUsersDetail.Hp}</td>
+        </tr>
       </tbody>
     </Table>
   );
