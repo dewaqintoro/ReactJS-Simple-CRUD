@@ -6,7 +6,7 @@ export default class HomeCont extends Component {
     return (
       <div>
         <h1>Home</h1>
-        <TableComp users={this.props.users}/>
+        <TableComp/>
       </div>
     )
   }

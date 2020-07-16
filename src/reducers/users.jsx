@@ -2,7 +2,7 @@ let initialState = {
   users:[
     {
       id:1,
-      nama:"dewa",
+      nama:"dewa qintoro",
       alamat:"Magetan",
       umur:21,
       Hp: "099999999"
@@ -23,8 +23,9 @@ let initialState = {
     },
   ],
   error: false,
+  title:"wadudu"
 }
-
+ 
 const users = (state = initialState, action)=>{
   return state
 }

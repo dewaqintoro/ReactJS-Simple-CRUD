@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from "react-redux";
+
 import {
   Collapse,
   Navbar,
@@ -14,6 +16,13 @@ import {
   NavbarText,
   Container
 } from 'reactstrap';
+
+
+const mapStateToProps = (state) => {
+  return {
+    title: state.users.title
+  };
+};
 
 const NavbarComp = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,4 +50,4 @@ const NavbarComp = (props) => {
   );
 }
 
-export default NavbarComp;
+export default connect(mapStateToProps)(NavbarComp);

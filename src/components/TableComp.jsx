@@ -6,6 +6,7 @@ import { faInfo, faEdit, faTrash, faUserPlus } from '@fortawesome/free-solid-svg
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 
 const { SearchBar } = Search;
@@ -61,6 +62,13 @@ const defaultSorted = [{
   order: 'asc'
 }]
 
+
+const mapStateToProps = (state) => {
+  return {
+    users: state.users.users
+  };
+};
+
 const TableComp = (props) => {
   return (
     <div>
@@ -85,7 +93,7 @@ const TableComp = (props) => {
                     <FontAwesomeIcon icon={faUserPlus} /> Add User
                   </Button>
                 </Link>
-                </Col>
+                </Col> 
                 <Col>
                   <div className="float-right">
                     <SearchBar {...props.searchProps} placeholder="Search ...."/>
@@ -105,4 +113,4 @@ const TableComp = (props) => {
   )
 }
 
-export default TableComp
+export default connect(mapStateToProps,null)(TableComp)
