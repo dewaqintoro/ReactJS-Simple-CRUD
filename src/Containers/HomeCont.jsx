@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import TableComp from '../components/TableComp'
+import { connect } from "react-redux";
+// import { GET_USERS_LIST } from '../actions/userAction';
+import {getUsersList} from '../actions/userAction'
 
-export default class HomeCont extends Component {
+class HomeCont extends Component {
+  componentDidMount(){
+    this.props.dispatch(getUsersList())
+  }
   render() {
     return (
       <div>
-        <h1>Home</h1>
         <TableComp/>
       </div>
     )
   }
 }
+
+export default connect()(HomeCont)

@@ -1,6 +1,6 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
-import { Button, Row, Col } from 'reactstrap';
+import { Button, Row, Col, Container, Spinner } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo, faEdit, faTrash, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
@@ -35,14 +35,14 @@ const columns = [{
   formatter: (rowContext, row) => {
     return (
       <div>
-        
-        <Link to={"detail/"+row.id}> 
+
+        <Link to={"detail/" + row.id}>
           <Button color="dark" className="mr-2">
             <FontAwesomeIcon icon={faInfo} /> Detail
           </Button>
         </Link>
 
-        <Link to={"edit/"+row.id}>
+        <Link to={"edit/" + row.id}>
           <Button color="dark" className="mr-2">
             <FontAwesomeIcon icon={faEdit} /> Edit
           </Button>
@@ -65,52 +65,61 @@ const defaultSorted = [{
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users.users
+    getUsersList: state.users.getUsersList,
+    errorUsersList: state.users.errorUsersList
   };
 };
+
+
 
 const TableComp = (props) => {
   return (
     <div>
-      {/* <BootstrapTable bootstrap4 keyField='id' data={props.users} columns={columns} defaultSorted={defaultSorted} /> */}
+      {props.getUsersList ?
 
-
-      <ToolkitProvider
-        bootstrap4 
-        keyField='id' 
-        data={props.users} 
-        columns={columns} 
-        defaultSorted={defaultSorted}
-        search
-      >
-        {
-          props => (
-            <div>
-              <Row>
-                <Col>
-                <Link to="/add"> 
-                  <Button color="dark" className="mr-2">
-                    <FontAwesomeIcon icon={faUserPlus} /> Add User
+        <ToolkitProvider
+          bootstrap4
+          keyField='id'
+          data={props.getUsersList}
+          columns={columns}
+          defaultSorted={defaultSorted}
+          search
+        >
+          {
+            props => (
+              <div>
+                <Row>
+                  <Col>
+                    <Link to="/add">
+                      <Button color="dark" className="mr-2">
+                        <FontAwesomeIcon icon={faUserPlus} /> Add User
                   </Button>
-                </Link>
-                </Col> 
-                <Col>
-                  <div className="float-right">
-                    <SearchBar {...props.searchProps} placeholder="Search ...."/>
-                  </div>
-                </Col>
-              </Row>
-              
-              <BootstrapTable
-                {...props.baseProps}
-                pagination={ paginationFactory() }
-              />
-            </div>
-          )
+                    </Link>
+                  </Col>
+                  <Col>
+                    <div className="float-right">
+                      <SearchBar {...props.searchProps} placeholder="Search ...." />
+                    </div>
+                  </Col>
+                </Row>
+
+                <BootstrapTable
+                  {...props.baseProps}
+                  pagination={paginationFactory()}
+                />
+              </div>
+            )
+          }
+          {/* tanpa loading spinner */}
+          {/* </ToolkitProvider> : null } */}
+        </ToolkitProvider> : 
+          <div className="text-center">
+            {props.errorUsersList ? <h1>{props.errorUsersList}</h1> : <Spinner color="dark" /> }
+          </div>
         }
-      </ToolkitProvider>
+
     </div>
   )
 }
 
-export default connect(mapStateToProps,null)(TableComp)
+export default connect(mapStateToProps, null)(TableComp)
