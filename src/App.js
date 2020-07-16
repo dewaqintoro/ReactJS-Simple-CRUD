@@ -23,18 +23,10 @@ export default class App extends Component{
           {/* <TableComp users={this.state.users} /> */}
 
           <BrowserRouter>
-            <Route path="/" exact>
-              <HomeCont/>
-            </Route>
-            <Route path="/add" exact>
-              <AddUserCont/>
-            </Route>
-            <Route path="/edit/:id" exact>
-              <EditUserCont/>
-            </Route>
-            <Route path="/detail/:id" exact>
-              <DetailUserCont/>
-            </Route>
+            <Route path="/" exact component={HomeCont}/>
+            <Route path="/add" exact component={AddUserCont}/>
+            <Route path="/edit/:id" exact component={EditUserCont} />
+            <Route path="/detail/:id" exact component={DetailUserCont}/>
           </BrowserRouter>
         </Container>
       </div>

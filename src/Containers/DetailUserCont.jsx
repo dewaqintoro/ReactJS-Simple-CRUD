@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 import { BackComp } from '../components/BackComp'
+import { connect } from "react-redux";
+import { getUsersDetail } from '../actions/userAction';
+import DetailUserComp from '../components/DetailUserComp';
 
-export default class DetailUserCont extends Component {
+class DetailUserCont extends Component {
+  componentDidMount(){
+    this.props.dispatch(getUsersDetail(this.props.match.params.id))
+  }
   render() {
-    console.log(this.props)
+    let idQu = this.props.match.params.id
+    console.log(idQu)
     return (
       <div>
-        <h1>Detail</h1>
         <BackComp/>
+        <h3>Detail User</h3>
+        <DetailUserComp/>
       </div>
     )
   }
 }
+
+export default connect()(DetailUserCont)
