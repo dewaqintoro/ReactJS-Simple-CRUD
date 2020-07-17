@@ -27,6 +27,34 @@
       "alamat": "ginuk",
       "umur": "17",
       "id": 4
+    },
+    {
+      "nama": "wadudu",
+      "alamat": "ginuk",
+      "Hp": "22111",
+      "umur": "37",
+      "id": 5
+    },
+    {
+      "nama": "uus",
+      "alamat": "karas",
+      "Hp": "45555",
+      "umur": "23",
+      "id": 6
+    },
+    {
+      "nama": "gin",
+      "alamat": "ginuk",
+      "Hp": "10",
+      "umur": "11",
+      "id": 7
+    },
+    {
+      "nama": "toro",
+      "alamat": "ggffginuk",
+      "Hp": "56",
+      "umur": "33",
+      "id": 8
     }
   ]
 }

@@ -8,7 +8,7 @@ export const POST_USERS = "POST_USERS";
 
 export const getUsersList = () => {
   return (dispatch) => {
-    axios.get('http://my-json-server.typicode.com/dewaqintoro97/db_json/users')
+    axios.get('http://localhost:3004/users')
       .then(function (response) {
         // handle success
         // console.log(response);
@@ -36,7 +36,7 @@ export const getUsersList = () => {
  
 export const getUsersDetail= (id) => {
   return (dispatch) => {
-    axios.get('http://my-json-server.typicode.com/dewaqintoro97/db_json/users/'+id)
+    axios.get('http://localhost:3004/users/'+id)
       .then(function (response) {
         // handle success
         // console.log(response);
@@ -90,10 +90,18 @@ export const postUser= (data) => {
   }
 }
 
-export const deleteUserDetail = () => {
+export const deleteDataUser = () => {
   return(dispatch) => {
     dispatch({
       type: GET_USERS_DETAIL,
+      payload:{
+        data:false,
+        errorMessage: false
+      }
+    });
+
+    dispatch({
+      type: POST_USERS,
       payload:{
         data:false,
         errorMessage: false
