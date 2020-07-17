@@ -1,4 +1,4 @@
-import { GET_USERS_LIST, GET_USERS_DETAIL, POST_USERS } from "../actions/userAction"
+import { GET_USERS_LIST, GET_USERS_DETAIL, POST_USERS, PUT_USER } from "../actions/userAction"
 
 
 let initialState = {
@@ -26,8 +26,15 @@ const users = (state = initialState, action) => {
         getUsersDetail: action.payload.data,
         errorUsersDetail: action.payload.errorMessage
       }
-    
+
     case POST_USERS:
+      return {
+        ...state,
+        getResponDataUser: action.payload.data,
+        errorResponDataUser: action.payload.errorMessage
+      }
+
+    case PUT_USER:
       return {
         ...state,
         getResponDataUser: action.payload.data,

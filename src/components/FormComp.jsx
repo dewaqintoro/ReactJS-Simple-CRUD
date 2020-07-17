@@ -37,6 +37,19 @@ const renderField = ({
   </Row>
 );
 
+
+// untuk edit, jika create tidak butuh ini
+const mapStateToProps = (state) => {
+  return {
+    initialValues : {
+      nama : state.users.getUsersDetail.nama,
+      alamat : state.users.getUsersDetail.alamat,
+      Hp : state.users.getUsersDetail.Hp,
+      umur : state.users.getUsersDetail.umur
+    }
+  };
+};
+
 class FormComp extends Component{
   render(){
     return(
@@ -52,7 +65,7 @@ class FormComp extends Component{
               />
             </FormGroup>
           </Col>
-
+ 
           <Col md={6}>
             <FormGroup>
               <Field
@@ -111,4 +124,5 @@ FormComp = reduxForm({
   enableReinitialize:true,
 })(FormComp);
 
-export default connect()(FormComp)
+export default connect(mapStateToProps)(FormComp)
+ 
