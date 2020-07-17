@@ -1,32 +1,41 @@
-import { GET_USERS_LIST, GET_USERS_DETAIL } from "../actions/userAction"
+import { GET_USERS_LIST, GET_USERS_DETAIL, POST_USERS } from "../actions/userAction"
 
 
 let initialState = {
-  getUsersList:false,
+  getUsersList: false,
   errorUsersList: false,
-  getUsersDetail:false,
+  getUsersDetail: false,
   errorUsersDetail: false,
-  title:"wadudu"
+  getResponDataUser: false,
+  errorResponDataUser: false,
+  title: "wadudu"
 }
- 
-const users = (state = initialState, action)=>{
-  switch(action.type){
+
+const users = (state = initialState, action) => {
+  switch (action.type) {
     case GET_USERS_LIST:
-      return{
+      return {
         ...state,
         getUsersList: action.payload.data,
         errorUsersList: action.payload.errorMessage
       }
 
-      case GET_USERS_DETAIL:
-        return{
-          ...state,
-          getUsersDetail: action.payload.data,
-          errorUsersDetail: action.payload.errorMessage
-        }
+    case GET_USERS_DETAIL:
+      return {
+        ...state,
+        getUsersDetail: action.payload.data,
+        errorUsersDetail: action.payload.errorMessage
+      }
     
+    case POST_USERS:
+      return {
+        ...state,
+        getResponDataUser: action.payload.data,
+        errorResponDataUser: action.payload.errorMessage
+      }
+
     default:
-        return state;
+      return state;
   }
 }
 

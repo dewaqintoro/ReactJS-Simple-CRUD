@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { BackComp } from '../components/BackComp'
 import FormComp from '../components/FormComp'
+import { connect } from "react-redux";
+import { postUser } from '../actions/userAction';
 
-export default class AddUserCont extends Component {
+class AddUserCont extends Component {
 
   handleSubmit(data){
-    console.log(data)
+    // console.log(data)
+    this.props.dispatch(postUser(data))
   }
   render() {
     return (
@@ -17,3 +20,5 @@ export default class AddUserCont extends Component {
     )
   }
 }
+
+export default connect()(AddUserCont)
