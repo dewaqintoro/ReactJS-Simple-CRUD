@@ -10,7 +10,7 @@
     {
       "nama": "Aniku",
       "alamat": "Semarang",
-      "Hp": "099999999",
+      "Hp": "088",
       "umur": 21,
       "id": 2
     },
@@ -43,18 +43,11 @@
       "id": 6
     },
     {
-      "nama": "gin",
-      "alamat": "ginuk",
-      "Hp": "10",
-      "umur": "11",
+      "nama": "hmm",
+      "alamat": "karas",
+      "Hp": "3333",
+      "umur": "12",
       "id": 7
-    },
-    {
-      "nama": "toro",
-      "alamat": "ggffginuk",
-      "Hp": "56",
-      "umur": "33",
-      "id": 8
     }
   ]
 }

@@ -119,6 +119,23 @@ export const putUser= (data,id) => {
   }
 }
 
+
+export const deleteUser= (id) => {
+  return (dispatch) => {
+    axios
+      .delete('http://localhost:3004/users/'+id)
+      .then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+  }
+}
+
+
 export const deleteDataUser = () => {
   return(dispatch) => {
     dispatch({
